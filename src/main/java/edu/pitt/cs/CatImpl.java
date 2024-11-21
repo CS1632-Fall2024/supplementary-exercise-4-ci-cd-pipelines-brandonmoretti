@@ -1,43 +1,50 @@
 package edu.pitt.cs;
 
+import static org.mockito.Mockito.when;
+
 public class CatImpl implements Cat {
 
-	// TODO: Fill in with member variables
+	Cat c;
+	int id; 
+	String name;
+	boolean rented;
 
 	public CatImpl(int id, String name) {
-		// TODO: Fill in
+		c = Cat.createInstance(InstanceType.MOCK, id, name);
+		when(c.getId()).thenReturn(id);
+		when(c.getName()).thenReturn(name);
+		when(c.getRented()).thenReturn(rented);
+		this.id = id;
+		this.name = name;
+		rented = false;
 	}
 
 	public void rentCat() {
-		// TODO: Fill in
+		rented = true;
 	}
 
 	public void returnCat() {
-		// TODO: Fill in
+		rented = false;
 	}
 
 	public void renameCat(String name) {
-		// TODO: Fill in
+		this.name = name;
 	}
 
 	public String getName() {
-		// TODO: Fill in
-		return "";
+		return name;
 	}
 
 	public int getId() {
-		// TODO: Fill in
-		return 0;
+		return id;
 	}
 
 	public boolean getRented() {
-		// TODO: Fill in
-		return false;
+		return rented;
 	}
 
 	public String toString() {
-		// TODO: Fill in
-		return "";
+		return "ID " + id + ". " + name;
 	}
 
 }
